@@ -1,4 +1,5 @@
 import api
+import json
 from flask import Flask, request, render_template
 
 app =Flask(__name__)
@@ -28,6 +29,15 @@ def add(videoid):
     with open('playlist.txt', 'a', encoding='UTF-8') as f:
         f.write(str(videoid) + '\n')
     return render_template('success.html')
+
+@app.route('/api/data/playlist')
+def playlist_data_api():
+    with open('playlist.txt', 'r', encoding='UTF-8') as f:
+        playlist = [ api.get_video_data(item.strip()) for item in f.readlines() ]
+    song_list = []
+    for song in playlist:
+        song_list.append(dict({'id' : song[0], 'title' : song[1], 'channel' : song[2]}))
+    return json.dumps(dict({'playlist' : song_list}))
 
 if __name__ == '__main__':
     app.run(debug=True)
