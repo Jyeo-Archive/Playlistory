@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+<style>
+body { background-color: #ffffff; color: #ffffff;
+background: url("{{ url_for('static', filename='background.png') }}") no-repeat center center fixed;}
+table { text-align: center; margin: auto; width: 100%; }
+.plus-circle { fill: #193441; }
+</style>
+<table>
+    <tbody>
+{% for result in result_list %}
+    {% if loop.index0%2 == 0 %}
+        <tr style="background-color: hsla(196, 81%, 61%, 0.63);">
+    {% else %}
+        <tr style="background-color: hsla(0, 100%, 100%, 0.7);">
+    {% endif %}
+        <th scope="row">
+            <a href="{{ 'https://www.youtube.com/watch?v=' + result[0] }}" target="_blank">
+                <img src="{{ result[3] }}">
+            </a>
+        </th>
+        <td style="color: black;">
+            <a href="{{ 'https://www.youtube.com/watch?v=' + result[0] }}" target="_blank">
+                <strong>{{ result[1] }}</strong>
+            </a>
+        </td>
+        <td>
+            <a href="{{ 'https://www.youtube.com/watch?v=' + result[0] }}" target="_blank">
+                {{ result[2] }}
+            </a>
+        </td>
+        <td>
+            <a href="{{ '/add/' + result[0] }}">
+                <svg class="plus-circle" xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 512 512" width="30px" height="30px">
+                    <path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"/>
+                </svg>
+            </a>
+        </td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>

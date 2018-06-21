@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+<style>
+    body { background-color: #fcfff5; color: #ffffff;
+    background: url("{{ url_for('static', filename='background.png') }}") no-repeat center center fixed; }
+    button[type="submit"] { background-color: #193441; color: white; }
+</style>
+<div id="search" class="search" style="margin: auto; width: 60%;">
+    <h1 style="margin: 2%; color: #ffffff;">Search Music here</h1>
+    <h3 class="col-form-label" for="inputDefault" style="margin-left: 2%; color: #ffffff;">Search</h3>
+    <div class="form-group" margin-left: 2%;>
+        <form action="/search" method="GET">
+            <button type="submit" class="btn btn-primary" style="float: right">Search</button> 
+            <div style="overflow: hidden;">
+            <input type="text" class="form-control" placeholder="Anything you want" 
+                id="inputDefault" name="keyword" style="width: 100%;">
+            </div>
+        </form>
+    </div>
+    <div id="chart">
+        <h3 class="col-form-label" for="inputDefault" style="margin-left: 2%; color: #ffffff;">
+            Billboard TOP <span class="badge badge-primary badge-pill">{{ chart | length }}</span>
+        </h3>
+        {% for song in chart %}
+          <a href="{{ '/search?keyword=' + song[0] }}" class="list-group-item list-group-item-action active" 
+            style="color: #ffffff; background-color: hsla(0, 0%, 0%, 0.7); border: none;">
+            {{ song[0] }} - {{ song[1] }}
+          </a>
+        {% endfor %}
+    </div>
+</div>

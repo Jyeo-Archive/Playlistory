@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+<style>
+@import url('https://fonts.googleapis.com/css?family=Lobster|Nanum+Gothic&subset=korean');
+body { background-color: #ffffff; color: #ffffff;
+background: url("{{ url_for('static', filename='background.png') }}") no-repeat center center fixed;}
+.title {
+    margin-top: 2%;
+    text-align: center;
+}
+.title h1 {
+    color: #ffffff;
+    font-family: 'Lobster', cursive;
+    font-size: 600%;
+    text-transform: capitalize;
+}
+.title p { 
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 200%;
+}
+.playlist h3 {
+    margin-left: 2%; 
+    color: #ffffff;
+}
+.playlist #song a {
+    color: #ffffff; 
+    background-color: hsla(0, 0%, 0%, 0.7); 
+    border: none;
+}
+.playlist #find a {
+    text-align: center; 
+    font-family: 'Nanum Gothic', sans-serif; 
+    font-size: 120%; 
+    color: #000000; 
+    background-color: hsla(0, 100%, 100%, 0.7); 
+    border: none;
+}
+</style>
+<div class="title">
+    <h1>Playlistory</h1>
+    <p>학급의 플레이리스트에 새로운 스토리를 만들어보세요</p>
+</div>
+<div id="playlist" style="margin: auto; width: 60%;">
+    <h3 class="col-form-label" for="inputDefault" style="color: #ffffff;">
+        Music in Playlist <span class="badge badge-primary badge-pill">{{ playlist | length }}</span>
+    </h3>
+    {% for song in playlist %}
+        <a id="song" href="{{ 'https://www.youtube.com/watch?v=' + song[2] }}" 
+            target="_blank" class="list-group-item list-group-item-action active">
+            {{ song[0] }} - {{ song[1] }}
+        </a>
+    {% endfor %}
+    <a id="find" href="/find" class="list-group-item list-group-item-action">
+        음악 추가하기
+    </a>
+</div>
+{% block content %}{% endblock %}

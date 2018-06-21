@@ -1,0 +1,15 @@
+{
+  "name": "playlistory-pcapp",
+  "version": "1.0.0",
+  "description": "playlistory pcapp with electron",
+  "main": "app.js",
+  "dependencies": {
+    "electron": "^2.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "JunhoYeo",
+  "license": "MIT"
+}

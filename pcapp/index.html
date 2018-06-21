@@ -1,0 +1,137 @@
+<title>Playlistory</title>
+<link rel="stylesheet" href="./bootstrap.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css?family=Lobster|Nanum+Gothic&subset=korean');
+body { 
+    background-color: #ffffff; color: #ffffff;
+    background: url("./background.png") no-repeat center center fixed;
+    background-size: 100% 100%;
+    margin: 0;
+    padding: 0;
+}
+::-webkit-scrollbar { 
+    display: none;
+}
+.title {
+    text-align: center;
+    background-color: hsla(196, 81%, 61%, 0.63);
+    margin: 0;
+    width: 100%;
+}
+.title h1 {
+    color: #ffffff;
+    text-transform: capitalize;
+    font-family: 'Lobster', cursive;
+    font-size: 100px;
+}
+.info {
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+.info .music-title {
+    color: #ffffff;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 500%;
+}
+.info .music-info {
+    color: #ffffff;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 300%;
+}
+.button {
+    margin-bottom: 12%;
+    text-align: center;
+}
+.button .playpause {
+  border: 0; background: transparent;
+  box-sizing: border-box;
+  width: 0; height: 104px;
+  border-color: transparent transparent transparent #fff;
+  transition: 100ms all ease;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 67px 0 67px 90px;
+  margin-left: 20px;
+}
+.button .playpause.paused {
+  border-style: double;
+  border-width: 0px 0 0px 60px;
+}
+.button .playpause:hover {
+    border-color: transparent transparent transparent #fff;
+}
+.playlist h3 {
+    margin-left: 2%; 
+    margin-bottom: 10%;
+    color: #ffffff;
+}
+.playlist #song a {
+    color: #ffffff; 
+    background-color: hsla(0, 0%, 0%, 0.7); 
+    border: none;
+}
+.playlist #find a {
+    text-align: center; 
+    font-family: 'Nanum Gothic', sans-serif; 
+    color: #000000; 
+    background-color: hsla(0, 100%, 100%, 0.7); 
+    border: none;
+}
+</style>
+<div class="title">
+    <h1>Playlistory</h1>
+</div>
+<div class="info">
+    <h1 class="music-title">FAKE LOVE</h1>
+    <p class="music-info">BTS - Love Yourself</p>
+</div>
+<div class="button">
+    <button class="playpause" onclick="playpause_click();"></button>
+</div>
+<div id="playlist" style="margin: auto; width: 100%; font-size: 200%;">
+    <h3 class="col-form-label" for="inputDefault" style="color: #ffffff; font-size: 120%; margin-left: 3%;">
+        Music in Playlist <span class="badge badge-primary badge-pill">9</span>
+    </h3>
+    <a id="song" href="https://www.youtube.com/watch?v=Nu2yQ1zYDYU" 
+        target="_blank" class="list-group-item list-group-item-action active">
+        [MV] PENTAGON(펜타곤) _ Shine(빛나리) - 1theK (원더케이)
+    </a>
+    <a id="song" href="https://www.youtube.com/watch?v=qkLMPihvKaQ" 
+        target="_blank" class="list-group-item list-group-item-action active">
+        방탄소년단 - ANPANMAN (BTS - ANPANMAN) │BTS COMEBACK SHOW 180524 - Mnet K-POP
+    </a>
+    <a id="song" href="https://www.youtube.com/watch?v=7C2z4GqqS5E" 
+        target="_blank" class="list-group-item list-group-item-action active">
+        BTS (방탄소년단) &#39;FAKE LOVE&#39; Official MV - ibighit
+    </a>
+    <a id="song" href="https://www.youtube.com/watch?v=n0LYGzYt6DU" 
+        target="_blank" class="list-group-item list-group-item-action active">
+        DPR LIVE - Playlist (OFFICIAL M/V) - Dream Perfect Regime
+    </a>
+    <a id="song" href="https://www.youtube.com/watch?v=U9BwWKXjVaI" 
+        target="_blank" class="list-group-item list-group-item-action active">
+        Drake - Nice For What - DrakeVEVO
+    </a>
+    <a id="song" href="https://www.youtube.com/watch?v=HCjNJDNzw8Y" 
+        target="_blank" class="list-group-item list-group-item-action active">
+        Camila Cabello - Havana (Audio) ft. Young Thug - CamilaCabelloVEVO
+    </a>
+    <a id="song" href="https://www.youtube.com/watch?v=mzB1VGEGcSU" 
+        target="_blank" class="list-group-item list-group-item-action active">
+        Juice Wrld - Lucid Dreams (Dir. by @_ColeBennett_) - Cole Bennett - Lyrical Lemonade
+    </a>
+    <a id="song" href="https://www.youtube.com/watch?v=M3mJkSqZbX4" 
+        target="_blank" class="list-group-item list-group-item-action active">
+        Zedd, Maren Morris, Grey - The Middle (Official Music Video) - ZEDDVEVO
+    </a>
+    <a id="song" href="https://www.youtube.com/watch?v=M3mJkSqZbX4" 
+        target="_blank" class="list-group-item list-group-item-action active">
+        Zedd, Maren Morris, Grey - The Middle (Official Music Video) - ZEDDVEVO
+    </a>
+    <a id="find" href="/find" class="list-group-item list-group-item-action" style="font-size: 130%;">
+        음악 추가하기
+    </a>
+    <div><h1> </h1></div>
+</div>
+    
